@@ -19,6 +19,8 @@ Or, for the latest git version
 
     $ pip install -e git://github.com/kmmbvnr/django-fsm.git#egg=django-fsm
 
+Library have Python 3 support, except graph transition drawing, b/c
+pygraphviz is not ported yet.
 
 Usage
 -----
@@ -152,8 +154,21 @@ Arguments sent with these signals:
    Target model state
 
 
+### Drawing transitions
+
+    Renders a graphical overview of your models states transitions
+
+    # Create a dot file
+    $ ./manage.py graph_transitions > transitions.dot
+
+    # Create a PNG image file only for specific model
+    $ ./manage.py graph_transitions -o blog_transitions.png myapp.Blog
+
+
 Changelog
 ---------
+django 1.4.0 2011-12-21
+    * Add graph_transition command for drawing state transition picture
 
 django-fsm 1.3.0 2011-07-28
     * Add direct field modification protection
